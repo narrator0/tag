@@ -21,3 +21,9 @@ page_ids = WebPage.pluck(:id)
     web_page_id: page_ids.sample
   )
 end
+
+PageTag.create([
+ { name: 'racist' },
+ { name: 'hate speech' },
+ { name: 'fake information' },
+])
