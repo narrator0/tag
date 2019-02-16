@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create(name: 'Test Account', email: 'test@gmail.com', password: 'testtest')
+
+10.times do
+  WebPage.create(url: Faker::Internet.url)
+end
+
+page_ids = WebPage.pluck(:id)
+
+100.times do |n|
+  user.posts.create(
+    title: "My #{n+1} post.",
+    content: Faker::Lorem.paragraph,
+    web_page_id: page_ids.sample
+  )
+end
