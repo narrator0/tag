@@ -1,7 +1,10 @@
-<h1>All Pages</h1>
-
-<% @web_pages.each do |page| %>
-  <h2>
-    <%= link_to page.url, web_page_path(page) %>
-  </h2>
-<% end %>
+<section class="section">
+  <div class="container">
+    <h1 class="title">All Pages</h1>
+    <% @web_pages.each do |page| %>
+      <h2 class="title is-4">
+        <%= link_to page.url, web_page_path(page) %>
+      </h2>
+    <% end %>
+  </div>
+</section>

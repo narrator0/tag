@@ -1,8 +1,32 @@
-<h1><%= @web_page.url %></h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title"><%= @web_page.url %></h1>
 
-<% @web_page.posts.each do |post| %>
-  <h2><%= post.title %></h2>
-  <p>
-    <%= post.content %>
-  </p>
-<% end %>
+    <% @web_page.posts.each do |post| %>
+      <h2 class="title is-4"><%= post.title %></h2>
+      <p class="content">
+        <%= post.content %>
+      </p>
+    <% end %>
+
+    <div class="columns">
+      <div class="column is-4">
+        <%= form_for [@web_page, Post.new] do |f| %>
+          <div class="field">
+            <%= f.label :title, class: 'label' %>
+            <div class="control">
+              <%= f.text_field :title, class: 'input' %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :content, class: 'label' %>
+            <div class="control">
+              <%= f.text_area :content, class: 'input' %>
+            </div>
+          </div>
+          <%= f.submit 'post', class: 'button is-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
