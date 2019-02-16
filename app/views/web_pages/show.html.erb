@@ -1,9 +1,13 @@
 <section class="section">
   <div class="container">
     <h1 class="title"><%= @web_page.url %></h1>
+    <hr>
 
-    <% @web_page.posts.each do |post| %>
-      <h2 class="title is-4"><%= post.title %></h2>
+    <% @posts.each do |post| %>
+      <h2 class="title is-4">
+        <%= post.user.name %>
+        <span class="tag is-light"><%= time_ago_in_words(post.created_at) %> ago</span>
+      </h2>
       <p class="content">
         <%= post.content %>
       </p>
@@ -13,18 +17,12 @@
       <div class="column is-4">
         <%= form_for [@web_page, Post.new] do |f| %>
           <div class="field">
-            <%= f.label :title, class: 'label' %>
-            <div class="control">
-              <%= f.text_field :title, class: 'input' %>
-            </div>
-          </div>
-          <div class="field">
-            <%= f.label :content, class: 'label' %>
+            <%= f.label :comment, class: 'label' %>
             <div class="control">
               <%= f.text_area :content, class: 'input' %>
             </div>
           </div>
-          <%= f.submit 'post', class: 'button is-primary' %>
+          <%= f.submit 'submit', class: 'button is-primary' %>
         <% end %>
       </div>
     </div>
