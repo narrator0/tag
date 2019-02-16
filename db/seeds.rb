@@ -14,9 +14,9 @@ end
 
 page_ids = WebPage.pluck(:id)
 
-100.times do |n|
+100.times do
   user.posts.create(
-    title: "My #{n+1} post.",
+    title: Faker::Lorem.sentence,
     content: Faker::Lorem.paragraph,
     web_page_id: page_ids.sample
   )
