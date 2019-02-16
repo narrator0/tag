@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :trackable
 
   validates_presence_of :name
+
+  # relations
+  has_many :posts
 end
