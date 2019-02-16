@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# for better inspection
+gem 'awesome_print'
+
 gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
