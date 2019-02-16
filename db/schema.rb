@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_112705) do
+ActiveRecord::Schema.define(version: 2019_02_16_113140) do
 
   create_table "page_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2019_02_16_112705) do
     t.string "title"
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index ["web_page_id"], name: "index_posts_on_web_page_id"
+  end
+
+  create_table "user_taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "page_tag_id"
+    t.bigint "web_page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_tag_id"], name: "index_user_taggings_on_page_tag_id"
+    t.index ["user_id"], name: "index_user_taggings_on_user_id"
+    t.index ["web_page_id"], name: "index_user_taggings_on_web_page_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
