@@ -1,0 +1,7 @@
+<h1>All Pages</h1>
+
+<% @web_pages.each do |page| %>
+  <h2>
+    <%= link_to page.url, web_page_path(page) %>
+  </h2>
+<% end %>
